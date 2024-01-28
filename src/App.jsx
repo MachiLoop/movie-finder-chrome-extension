@@ -1,10 +1,12 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
 import "./App.css";
-import Form from "./Form";
+// import Form from "./Form";
 import { createContext } from "react";
-import Results from "./Results";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Results from "./Results";
+import Homepage from "./Homepage";
 
 export const AppContext = createContext();
 
@@ -25,7 +27,8 @@ function App() {
         setSearchResult,
       }}
     >
-      {/* <div>
+      <div>
+        {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -45,8 +48,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      <Form />
-      <Results />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+          </Routes>
+        </Router>
+      </div>
     </AppContext.Provider>
   );
 }

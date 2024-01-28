@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./App";
+import { Link } from "react-router-dom";
 import Axios from "axios";
 
 const Results = () => {
@@ -22,24 +23,28 @@ const Results = () => {
   console.log(searchResult);
 
   if (searchTerm && isLoading) {
-    return <p>Loading...</p>;
+    return <p className="italic font-bold mt-4">Loading...</p>;
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-4 my-5">
       {!searchTerm ? (
         <p>Type to start searching</p>
       ) : searchResult.length > 0 ? (
         searchResult.map((result) => (
-          <div key={result.imdbID}>
+          <div key={result.imdbID} className="flex items-center gap-6">
             <div>
-              <img src={result.Poster} alt="" />
+              <img
+                src={result.Poster}
+                alt=""
+                className="w-10 h-10 object-cover"
+              />
             </div>
             <div>
-              <p>{result.Title}</p>
-              <div>
-                <p>{result.Type}</p>
-                <p>{result.Year}</p>
+              <Link to={`/movie/${result.imdbID}`}>{result.Title}</Link>
+              <div className="flex items-center gap-1 my-1">
+                <p className="bg-slate-100 px-1 rounded-md">{result.Type}</p>
+                <p className="bg-slate-100 px-1 rounded-md">{result.Year}</p>
               </div>
             </div>
           </div>
@@ -47,7 +52,7 @@ const Results = () => {
       ) : (
         <p> No result for your search</p>
       )}
-    </>
+    </div>
 
     //   <div></div>;
   );
