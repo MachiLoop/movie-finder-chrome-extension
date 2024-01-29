@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./App";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Axios from "axios";
 
 const Results = () => {
@@ -41,7 +41,8 @@ const Results = () => {
               />
             </div>
             <div>
-              <Link to={`/movie/${result.imdbID}`}>{result.Title}</Link>
+              {/* <Link to={`/movie/${result.imdbID}`}>{result.Title}</Link> */}
+              <p>{result.Title}</p>
               <div className="flex items-center gap-1 my-1">
                 <p className="bg-slate-100 px-1 rounded-md">{result.Type}</p>
                 <p className="bg-slate-100 px-1 rounded-md">{result.Year}</p>
