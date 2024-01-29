@@ -8,6 +8,6 @@
   "permissions": ["scripting"],
   "host_permissions": ["http://*/*", "https://*/*"],
   "icons": {
-    "32": "icon32.jpg"
+    "32": "icon32.png"
   }
 }
