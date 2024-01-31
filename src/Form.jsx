@@ -2,14 +2,20 @@ import { useContext } from "react";
 import { AppContext } from "./App";
 
 const Form = () => {
-  const { searchTerm, setSearchTerm, searchCategory, setSearchCategory } =
-    useContext(AppContext);
+  const {
+    searchTerm,
+    setSearchTerm,
+    searchCategory,
+    setSearchCategory,
+    setShowMovieDetails,
+  } = useContext(AppContext);
 
   console.log(searchTerm, searchCategory);
 
   const resetSearch = () => {
     setSearchTerm("");
     setSearchCategory("");
+    setShowMovieDetails(false);
   };
 
   return (
@@ -22,7 +28,10 @@ const Form = () => {
             id="search"
             placeholder="Enter movie title"
             className="border border-black rounded-md px-1 outline-none"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setShowMovieDetails(false);
+            }}
           />
         </div>
         <div className="flex gap-1">
@@ -31,7 +40,10 @@ const Form = () => {
             name="type"
             id="type"
             className="border border-black rounded-md"
-            onChange={(e) => setSearchCategory(e.target.value)}
+            onChange={(e) => {
+              setSearchCategory(e.target.value);
+              setShowMovieDetails(false);
+            }}
           >
             <option value="">All</option>
             <option value="movie">movie</option>
