@@ -1,6 +1,6 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
 import "./App.css";
 // import Form from "./Form";
 import { createContext } from "react";
@@ -15,6 +15,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [showMovieDetails, setShowMovieDetails] = useState(false);
 
   return (
     <AppContext.Provider
@@ -25,6 +26,8 @@ function App() {
         setSearchCategory,
         searchResult,
         setSearchResult,
+        showMovieDetails,
+        setShowMovieDetails,
       }}
     >
       <div>

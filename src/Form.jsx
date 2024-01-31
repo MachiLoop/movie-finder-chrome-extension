@@ -14,7 +14,7 @@ const Form = () => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-center justify-center">
         <div>
           <input
             type="search"
